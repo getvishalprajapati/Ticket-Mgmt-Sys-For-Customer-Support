@@ -1,0 +1,18 @@
+{
+  "name": "crescent-ticket-db",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local PGlite PostgreSQL socket server for the Crescent Motors ticket service (local development and automated tests only).",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0 <23.0.0"
+  },
+  "scripts": {
+    "start": "node start-db.mjs"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@electric-sql/pglite-socket": "0.2.11"
+  }
+}

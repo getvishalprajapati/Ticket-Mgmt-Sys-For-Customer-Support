@@ -1,0 +1,35 @@
+# Runtime dependencies - Crescent Motors Ticket Service.
+#
+# Every direct and transitive package is pinned to an exact version published on
+# or before 2026-09-25 (see docs/dependencies.md for dates and sources).
+# Install with:
+#   python -m pip install --uploaded-prior-to 2026-09-26T00:00:00Z -r requirements.txt
+# and verify with:
+#   python scripts/check_dependencies.py
+
+# --- Web framework -----------------------------------------------------------
+fastapi==0.141.1
+starlette==1.7.0                # via fastapi
+annotated-doc==0.0.5            # via fastapi
+anyio==4.15.1                   # via starlette
+idna==3.20                      # via anyio
+uvicorn==0.53.0
+click==8.5.0                    # via uvicorn
+h11==0.16.0                     # via uvicorn
+
+# --- Validation and configuration ------------------------------------------
+pydantic==2.13.5
+pydantic-core==2.46.5           # via pydantic (exact pin required by pydantic)
+annotated-types==0.8.0          # via pydantic
+typing-extensions==4.16.0       # via pydantic, fastapi, sqlalchemy, alembic, anyio
+typing-inspection==0.4.4        # via pydantic, fastapi, pydantic-settings
+pydantic-settings==2.15.0
+python-dotenv==1.2.3            # via pydantic-settings
+
+# --- Database ----------------------------------------------------------------
+SQLAlchemy==2.0.54
+greenlet==3.5.6 ; platform_machine == "aarch64" or platform_machine == "ppc64le" or platform_machine == "x86_64" or platform_machine == "amd64" or platform_machine == "AMD64" or platform_machine == "win32" or platform_machine == "WIN32"  # via sqlalchemy
+alembic==1.19.2
+Mako==1.4.3                     # via alembic
+MarkupSafe==3.0.3               # via mako
+psycopg2-binary==2.9.13         # PostgreSQL driver (verified against PGlite, see docs/architecture.md)

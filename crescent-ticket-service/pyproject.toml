@@ -1,0 +1,21 @@
+[project]
+name = "crescent-ticket-service"
+version = "1.0.0"
+description = "Crescent Motors Customer Support Ticket Management System - ticket management backend (Microservice 2)"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+# Dependencies are pinned in requirements.txt / requirements-dev.txt
+# (exact versions, publication cutoff 2026-09-25). This file only holds
+# project metadata and tool configuration; the project is run from source.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra --strict-markers --strict-config"
+xfail_strict = true
+filterwarnings = [
+    "error::sqlalchemy.exc.SAWarning",
+    # Starlette 1.7 prefers the new `httpx2` package for its TestClient. This project
+    # deliberately keeps the stable, specified HTTPX 0.28.1 (see docs/dependencies.md).
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated:starlette.exceptions.StarletteDeprecationWarning",
+]

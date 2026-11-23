@@ -1,0 +1,26 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node.js / PGlite runtime
+database/node_modules/
+# Generated PGlite data directories (application and test databases) and lock files
+database/pgdata/
+
+# Logs and editor files
+*.log
+.DS_Store
+.idea/
+.vscode/
+.sf/
+.sfdx/
